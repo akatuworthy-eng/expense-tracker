@@ -32,4 +32,27 @@ while True :
 
         if descriptionamount <= 0:
             print("Amount must be greater than zero")
-            continue        
+            continue
+
+        new_expense = {
+
+            "description": description,
+            "amount": descriptionamount
+        }    
+
+        expense.append(new_expense)  
+
+    if action == "2":
+        if not expense:
+            print("No expenses recorded yet")
+        else:
+            for number, item in enumerate(expense, start=1):
+                print(f"{number}. {item['description']} - ₦{item['amount']:.2f}")
+
+    if action == "3":
+        total = 0
+
+        for item in expense:
+            total = total + item["amount"]
+        
+        print(f"Total Expenses: ₦{total:.2f}")
